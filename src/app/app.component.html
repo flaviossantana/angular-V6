@@ -3,19 +3,8 @@
 </h1>
 
 <app-photo
-  descricao="Ford Bravo"
-  local="https://visualhunt.com/photos/1/blue-vintage-car-in-front-of-house.jpg">
+  *ngFor="let foto of fotos"
+  [opacidade]="foto.opacidade"
+  [descricao]="foto.descricao"
+  [local]="foto.local">
 </app-photo>
-
-<app-photo
-  opacidade="0.8"
-  descricao="Carro abandonado"
-  local="https://visualhunt.com/photos/1/oldtimer-car-vintage-old-headlight-engine-hood.jpg">
-</app-photo>
-
-<app-photo
-  descricao="Barco em alto mar"
-  local="https://visualhunt.com/photos/1/boat-water-sea-ship.jpg">
-</app-photo>
-
-
