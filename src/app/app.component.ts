@@ -13,9 +13,10 @@ export class AppComponent {
   constructor(http: HttpClient) {
     http
       .get<Object[]>('http://localhost:3000/flavio/photos')
-      .subscribe(photos => {
-        this.fotos = photos;
-      });
+      .subscribe(
+        photos => this.fotos = photos,
+        erro => console.log(erro)
+      );
   }
 
 }
