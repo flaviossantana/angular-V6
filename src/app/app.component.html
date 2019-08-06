@@ -4,7 +4,7 @@
 
 <app-photo
   *ngFor="let foto of fotos"
-  [opacidade]="foto.opacidade"
-  [descricao]="foto.descricao"
-  [local]="foto.local">
+  [descricao]="foto.description"
+  [local]="foto.url"
+  [dataPostagem]="foto.postDate">
 </app-photo>

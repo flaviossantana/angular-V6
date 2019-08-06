@@ -8,23 +8,14 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AppComponent {
   title = 'Alura PIC!';
-  fotos = [
-    {
-      'descricao': 'Ford Bravo',
-      'local': 'https://visualhunt.com/photos/1/blue-vintage-car-in-front-of-house.jpg'
-    },
-    {
-      'opacidade': '0.8',
-      'descricao': 'Carro abandonado',
-      'local': 'https://visualhunt.com/photos/1/oldtimer-car-vintage-old-headlight-engine-hood.jpg'
-    },
-    {
-      'descricao': 'Barco em alto mar',
-      'local': 'https://visualhunt.com/photos/1/boat-water-sea-ship.jpg'
-    }
-  ];
+  fotos: Object[] = [];
 
   constructor(http: HttpClient) {
+    http
+      .get<Object[]>('http://localhost:3000/flavio/photos')
+      .subscribe(photos => {
+        this.fotos = photos;
+      });
   }
 
 }

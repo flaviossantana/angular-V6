@@ -8,7 +8,5 @@ export class PhotoComponent {
 
   @Input() local = '';
   @Input() descricao = '';
-  @Input() opacidade = '';
-
-
+  @Input() dataPostagem = '';
 }
