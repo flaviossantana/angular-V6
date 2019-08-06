@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -22,4 +23,8 @@ export class AppComponent {
       'local': 'https://visualhunt.com/photos/1/boat-water-sea-ship.jpg'
     }
   ];
+
+  constructor(http: HttpClient) {
+  }
+
 }
