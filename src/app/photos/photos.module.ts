@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {PhotoComponent} from './photo/photo.component';
 import {CommonModule} from '@angular/common';
+import {PhotoService} from './photo.service';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,9 @@ import {CommonModule} from '@angular/common';
   ],
   imports: [
     CommonModule
+  ],
+  providers: [
+
   ]
 })
 export class PhotosModule {

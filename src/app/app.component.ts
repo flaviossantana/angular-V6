@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {PhotoService} from './photos/photo.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,9 @@ export class AppComponent {
   title = 'Alura PIC!';
   fotos: Object[] = [];
 
-  constructor(http: HttpClient) {
-    http
-      .get<Object[]>('http://localhost:3000/flavio/photos')
-      .subscribe(
-        photos => this.fotos = photos,
-        erro => console.log(erro)
-      );
+  constructor(photoService: PhotoService) {
+    photoService.listaPorUsuario('flavio')
+      .subscribe(fotos => this.fotos = fotos);
   }
 
 }
