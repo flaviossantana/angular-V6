@@ -1,21 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {PhotoService} from './photos/photo.service';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'ap-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Alura PIC!';
-  fotos: Object[] = [];
-  metadados: any;
-
-  constructor(private photoService: PhotoService) {
-  }
-
-  ngOnInit(): void {
-    this.photoService.listaPorUsuario('flavio')
-      .subscribe(fotos => this.fotos = fotos);
-  }
 }
