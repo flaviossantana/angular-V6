@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {PhotoComponent} from './photo/photo.component';
 import {CommonModule} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import {CommonModule} from '@angular/common';
     PhotoComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [
 

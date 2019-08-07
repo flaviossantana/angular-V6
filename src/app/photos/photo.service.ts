@@ -14,5 +14,4 @@ export class PhotoService {
     return this.http
       .get<Photo[]>(API + '/flavio/photos');
   }
-
 }

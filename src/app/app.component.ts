@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
 import {PhotoService} from './photos/photo.service';
 
 @Component({
@@ -7,13 +6,16 @@ import {PhotoService} from './photos/photo.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Alura PIC!';
   fotos: Object[] = [];
+  metadados: any;
 
-  constructor(photoService: PhotoService) {
-    photoService.listaPorUsuario('flavio')
-      .subscribe(fotos => this.fotos = fotos);
+  constructor(private photoService: PhotoService) {
   }
 
+  ngOnInit(): void {
+    this.photoService.listaPorUsuario('flavio')
+      .subscribe(fotos => this.fotos = fotos);
+  }
 }
