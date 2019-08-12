@@ -6,7 +6,7 @@ import {PaginaNaoEncontradoComponent} from './erros/pagina-nao-encontrado/pagina
 
 const rotas: Routes = [
   {
-    path: 'user/flavio',
+    path: 'user/:usuario',
     component: PhotoListComponent
   },
   {

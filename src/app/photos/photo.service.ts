@@ -12,6 +12,6 @@ export class PhotoService {
 
   listaPorUsuario(nome: string) {
     return this.http
-      .get<Photo[]>(API + '/flavio/photos');
+      .get<Photo[]>(API + '/'+nome+'/photos');
   }
 }
