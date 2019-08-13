@@ -5,8 +5,8 @@ import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'ap-photo-list',
-  templateUrl: './photo-list.component.html',
-  styleUrls: ['./photo-list.component.css']
+  templateUrl: 'photo-list.component.html',
+  styleUrls: ['photo-list.component.css']
 })
 export class PhotoListComponent implements OnInit {
 
