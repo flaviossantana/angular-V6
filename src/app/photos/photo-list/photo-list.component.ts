@@ -21,7 +21,9 @@ export class PhotoListComponent implements OnInit {
   ngOnInit(): void {
     const nome = this.rotaAtiva.snapshot.params.usuario;
     this.photoService.listaPorUsuario(nome)
-      .subscribe(fotos => this.fotos = fotos);
+      .subscribe(fotos => {
+        this.fotos = fotos;
+      });
   }
 
 }
