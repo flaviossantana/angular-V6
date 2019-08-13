@@ -1,17 +1,23 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Photo} from '../../photo';
 
 @Component({
   selector: 'ap-photos',
   templateUrl: 'photos-component.html'
 })
-export class PhotosComponent implements OnInit {
+export class PhotosComponent implements OnInit, OnChanges {
 
   @Input() fotos: Photo[] = [];
   novasLinhas: any[] = [];
 
   ngOnInit(): void {
-    this.criandoNovasLinhas(this.fotos);
+
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.fotos) {
+      this.criandoNovasLinhas(this.fotos);
+    }
   }
 
   criandoNovasLinhas(fotos: Photo[]) {
