@@ -27,4 +27,8 @@ export class PhotoListComponent implements OnInit {
       });
   }
 
+  onKeyUpFiltro($event) {
+    this.filtro = $event.target.value;
+  }
+
 }
