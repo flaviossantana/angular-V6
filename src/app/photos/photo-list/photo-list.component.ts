@@ -12,6 +12,8 @@ export class PhotoListComponent implements OnInit {
 
   fotos: Photo[] = [];
   filtro: string = '';
+  ordenar = 'postDate';
+  crescente = false;
 
   constructor(
     private photoService: PhotoService,

@@ -9,4 +9,4 @@
     >
   </form>
 </div>
-<ap-photos [fotos]="fotos"></ap-photos>
+<ap-photos [fotos]="fotos | filtroPorDescricao:filtro | ordenarPor:ordenar:crescente"></ap-photos>

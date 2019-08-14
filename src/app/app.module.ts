@@ -4,6 +4,7 @@ import {AppComponent} from './app.component';
 import {PhotosModule} from './photos/photos.module';
 import {AppRoutingModule} from './app.routing.module';
 import {ErrosModule} from './erros/erros.module';
+import {OrdenarPorPipe} from './pipe/ordenar-por.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,8 @@ import {ErrosModule} from './erros/erros.module';
     ErrosModule
   ],
   providers: [],
+  exports: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
