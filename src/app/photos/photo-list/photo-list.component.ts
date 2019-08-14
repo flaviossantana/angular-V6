@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PhotoService} from '../photo.service';
 import {Photo} from '../photo';
 import {ActivatedRoute} from '@angular/router';
@@ -11,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 export class PhotoListComponent implements OnInit {
 
   fotos: Photo[] = [];
+  filtro: string = '';
 
   constructor(
     private photoService: PhotoService,

@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { PhotoListComponent } from './photo-list/photo-list.component';
 import { PhotoFormComponent } from './photo-form/photo-form.component';
 import {PhotosComponent} from './photo-list/photos/photos-component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {PhotosComponent} from './photo-list/photos/photos-component';
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
 

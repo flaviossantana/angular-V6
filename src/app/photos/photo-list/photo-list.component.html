@@ -1,1 +1,12 @@
+<div class="text-center mt-3 mb-3">
+  <form>
+    <input
+      class="rounded"
+      type="search"
+      placeholder="pesquisar..."
+      autofocus
+      (keyup)="filtro = $event.target.value"
+    >
+  </form>
+</div>
 <ap-photos [fotos]="fotos"></ap-photos>
