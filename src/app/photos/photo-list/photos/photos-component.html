@@ -1,12 +1,11 @@
-<li class="list-unstyled row">
-  <ol *ngFor="let colunas of novasLinhas" class="col-4">
-    <div *ngFor="let foto of colunas">
+<li class="list-unstyled">
+  <ol *ngFor="let colunas of novasLinhas" class="row">
+    <div *ngFor="let foto of colunas" class="col-4">
       <ap-photo
         [descricao]="foto.description"
         [local]="foto.url"
         [dataPostagem]="foto.postDate">
       </ap-photo>
-      <p>{{foto.description}} / {{foto.postDate}}</p>
     </div>
   </ol>
 </li>

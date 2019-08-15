@@ -3,11 +3,15 @@ import {RouterModule, Routes} from '@angular/router';
 import {PhotoListComponent} from './photos/photo-list/photo-list.component';
 import {PhotoFormComponent} from './photos/photo-form/photo-form.component';
 import {PaginaNaoEncontradoComponent} from './erros/pagina-nao-encontrado/pagina-nao-encontrado.component';
+import {PhotoListResolver} from './photos/photo-list/photo-list.resolver';
 
 const rotas: Routes = [
   {
     path: 'user/:usuario',
-    component: PhotoListComponent
+    component: PhotoListComponent,
+    resolve: {
+      photos: PhotoListResolver
+    }
   },
   {
     path: 'p/add',
@@ -21,7 +25,7 @@ const rotas: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(rotas, {enableTracing: true})
+    RouterModule.forRoot(rotas)
   ],
   exports: [
     RouterModule

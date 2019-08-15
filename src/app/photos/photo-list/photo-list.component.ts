@@ -12,21 +12,14 @@ export class PhotoListComponent implements OnInit {
 
   fotos: Photo[] = [];
   filtro: string = '';
-  ordenar = 'postDate';
-  crescente = false;
+  propriedade = 'description';
+  crescente = true;
 
-  constructor(
-    private photoService: PhotoService,
-    private rotaAtiva: ActivatedRoute
-  ) {
+  constructor(private rotaAtiva: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    const nome = this.rotaAtiva.snapshot.params.usuario;
-    this.photoService.listaPorUsuario(nome)
-      .subscribe(fotos => {
-        this.fotos = fotos;
-      });
+    this.fotos = this.rotaAtiva.snapshot.data['photos'];
   }
 
   onKeyUpFiltro($event) {

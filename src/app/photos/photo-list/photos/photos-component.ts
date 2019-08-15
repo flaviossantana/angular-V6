@@ -16,16 +16,16 @@ export class PhotosComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.fotos) {
-      this.criandoNovasLinhas(this.fotos);
+      this.novasLinhas = this.criandoNovasLinhas(this.fotos);
     }
   }
 
   criandoNovasLinhas(fotos: Photo[]) {
-    const novasLinhas = [];
+    const linhas = [];
     for (let index = 0; index < fotos.length; index += 3) {
-      this.novasLinhas.push(fotos.slice(index, index + 3));
+      linhas.push(fotos.slice(index, index + 3));
     }
-    return novasLinhas;
+    return linhas;
   }
 
 }

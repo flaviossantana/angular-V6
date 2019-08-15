@@ -5,8 +5,8 @@
       type="search"
       placeholder="pesquisar..."
       autofocus
-      (keyup)="onKeyUpFiltro($event)"
+      (keyup)="filtro = $event.target.value"
     >
   </form>
 </div>
-<ap-photos [fotos]="fotos | filtroPorDescricao:filtro | ordenarPor:ordenar:crescente"></ap-photos>
+<ap-photos [fotos]="fotos | filtroPorDescricao:filtro | ordenarPor:propriedade:crescente"></ap-photos>
