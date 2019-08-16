@@ -8,6 +8,5 @@
       (keyup)="onKeyUpFiltro($event.target.value)"
     >
   </form>
-  {{this.filtro}}
 </div>
 <ap-photos [fotos]="fotos | filtroPorDescricao:filtro | ordenarPor:propriedade:crescente"></ap-photos>
