@@ -10,7 +10,7 @@ export class PhotoListResolver implements Resolve<Photo[]> {
   constructor(private fotoService: PhotoService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Photo[]> {
-    return this.fotoService.listaPorUsuario(route.params.usuario);
+    return this.fotoService.listaPorUsuarioPaginado(route.params.usuario, 1);
   }
 
 }
