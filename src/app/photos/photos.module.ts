@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {FiltroPorDescricaoPipe} from './filtro-por-descricao.pipe';
 import {AppModule} from '../app.module';
 import {OrdenarPorPipe} from '../pipe/ordenar-por.pipe';
+import { BotaoCarregarComponent } from './photo-list/botao-carregar/botao-carregar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {OrdenarPorPipe} from '../pipe/ordenar-por.pipe';
     PhotoFormComponent,
     PhotosComponent,
     FiltroPorDescricaoPipe,
-    OrdenarPorPipe
+    OrdenarPorPipe,
+    BotaoCarregarComponent
   ],
   imports: [
     CommonModule,

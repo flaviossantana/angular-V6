@@ -10,3 +10,5 @@
   </form>
 </div>
 <ap-photos [fotos]="fotos | filtroPorDescricao:filtro | ordenarPor:propriedade:crescente"></ap-photos>
+<ap-botao-carregar [temMais]="temMais" (click)="carregarMais()" ></ap-botao-carregar>
+
