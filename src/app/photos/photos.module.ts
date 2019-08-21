@@ -10,21 +10,19 @@ import {FiltroPorDescricaoPipe} from './filtro-por-descricao.pipe';
 import {AppModule} from '../app.module';
 import {OrdenarPorPipe} from '../pipe/ordenar-por.pipe';
 import { BotaoCarregarComponent } from './photo-list/botao-carregar/botao-carregar.component';
+import {PhotoListModule} from './photo-list/photo-list.module';
+import {PhotoFormModule} from './photo-form/photo-form.module';
 
 @NgModule({
   declarations: [
-    PhotoComponent,
-    PhotoListComponent,
-    PhotoFormComponent,
-    PhotosComponent,
-    FiltroPorDescricaoPipe,
-    OrdenarPorPipe,
-    BotaoCarregarComponent
+
   ],
   imports: [
+    FormsModule,
     CommonModule,
-    HttpClientModule,
-    FormsModule
+    PhotoListModule,
+    PhotoFormModule,
+    HttpClientModule
   ],
   providers: [
 
