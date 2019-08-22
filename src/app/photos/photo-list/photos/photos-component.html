@@ -1,5 +1,5 @@
-<li class="">
-  <ol *ngFor="let colunas of novasLinhas" class="row no-gutters">
+<ol class="list-unstyled">
+  <li *ngFor="let colunas of novasLinhas" class="row no-gutters">
     <div *ngFor="let foto of colunas" class="col-sm-12 col-lg-4">
       <ap-card [titulo]="foto.description">
         <ap-photo
@@ -13,5 +13,5 @@
         </div>
       </ap-card>
     </div>
-  </ol>
-</li>
+  </li>
+</ol>
