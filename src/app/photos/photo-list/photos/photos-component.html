@@ -1,6 +1,6 @@
-<li class="list-unstyled">
-  <ol *ngFor="let colunas of novasLinhas" class="row">
-    <div *ngFor="let foto of colunas" class="col-4">
+<li class="">
+  <ol *ngFor="let colunas of novasLinhas" class="row no-gutters">
+    <div *ngFor="let foto of colunas" class="col-sm-12 col-lg-4">
       <ap-photo
         [descricao]="foto.description"
         [local]="foto.url"
