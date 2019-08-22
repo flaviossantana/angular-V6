@@ -6,18 +6,21 @@ import {OrdenarPorPipe} from '../../pipe/ordenar-por.pipe';
 import {CommonModule} from '@angular/common';
 import {FiltroPorDescricaoPipe} from '../filtro-por-descricao.pipe';
 import {PhotoModule} from '../photo/photo.module';
+import {CardModule} from '../../shared/components/card/card.module';
+import {PhotosModule} from './photos/photos.module';
 
 @NgModule({
   declarations: [
     OrdenarPorPipe,
-    PhotosComponent,
     PhotoListComponent,
     FiltroPorDescricaoPipe,
     BotaoCarregarComponent
   ],
   imports: [
     PhotoModule,
-    CommonModule
+    PhotosModule,
+    CommonModule,
+    CardModule
   ]
 })
 export class PhotoListModule {
