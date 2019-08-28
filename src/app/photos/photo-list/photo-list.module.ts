@@ -8,13 +8,15 @@ import {FiltroPorDescricaoPipe} from '../filtro-por-descricao.pipe';
 import {PhotoModule} from '../photo/photo.module';
 import {CardModule} from '../../shared/components/card/card.module';
 import {PhotosModule} from './photos/photos.module';
+import {PesquisaComponent} from './pesquisa/pesquisa.component';
 
 @NgModule({
   declarations: [
     OrdenarPorPipe,
     PhotoListComponent,
     FiltroPorDescricaoPipe,
-    BotaoCarregarComponent
+    BotaoCarregarComponent,
+    PesquisaComponent
   ],
   imports: [
     PhotoModule,

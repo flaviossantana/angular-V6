@@ -1,5 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {debounceTime} from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Subject} from 'rxjs';
 
@@ -11,16 +10,15 @@ import {PhotoService} from '../photo.service';
   templateUrl: 'photo-list.component.html',
   styleUrls: ['photo-list.component.css']
 })
-export class PhotoListComponent implements OnInit, OnDestroy {
+export class PhotoListComponent implements OnInit {
 
   filtro = '';
-  temMais = true;
   usuario = '';
+  temMais = true;
   crescente = true;
   paginaCorrente = 1;
   fotos: Photo[] = [];
   propriedade = 'description';
-  debounce: Subject<string> = new Subject<string>();
 
   constructor(
     private rotaAtiva: ActivatedRoute,
@@ -30,9 +28,6 @@ export class PhotoListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.usuario = this.rotaAtiva.snapshot.params.usuario;
     this.fotos = this.rotaAtiva.snapshot.data['photos'];
-    this.debounce
-      .pipe(debounceTime(500))
-      .subscribe(filtro => this.filtro = filtro);
   }
 
   carregarMais() {
@@ -44,12 +39,7 @@ export class PhotoListComponent implements OnInit, OnDestroy {
     });
   }
 
-  onKeyUpFiltro(filtro) {
-    this.debounce.next(filtro);
+  recebeFiltro(filtro: string) {
+    this.filtro = filtro;
   }
-
-  ngOnDestroy(): void {
-    this.debounce.unsubscribe();
-  }
-
 }

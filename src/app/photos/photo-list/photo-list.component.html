@@ -1,15 +1,4 @@
-<div class="text-center mt-3 mb-3">
-  <form>
-    <i aria-hidden="true" class="fa fa-search mr-1" ></i>
-    <input
-      class="rounded"
-      type="search"
-      placeholder="pesquisar..."
-      autofocus
-      (keyup)="onKeyUpFiltro($event.target.value)"
-    >
-  </form>
-</div>
+<ap-pesquisa [filtro]="filtro" (filtroEvent)="recebeFiltro($event)"></ap-pesquisa>
 <ap-photos [fotos]="fotos | filtroPorDescricao:filtro | ordenarPor:propriedade:crescente"></ap-photos>
 <ap-botao-carregar [temMais]="temMais" (click)="carregarMais()" ></ap-botao-carregar>
 
