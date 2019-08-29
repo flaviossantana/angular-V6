@@ -7,5 +7,6 @@ import {Component, Input} from '@angular/core';
 export class CardComponent {
 
   @Input() titulo = '';
+  corDestaque = '#f0eded';
 
 }

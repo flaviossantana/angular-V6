@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CardComponent} from './card.component';
 import {CommonModule} from '@angular/common';
+import {EscureceAoPairarModules} from '../../directive/escurece-ao-pairar/escurece-ao-pairar.modules';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import {CommonModule} from '@angular/common';
     CardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    EscureceAoPairarModules
   ]
 })
 export class CardModule {
