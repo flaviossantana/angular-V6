@@ -5,6 +5,7 @@ import {PhotosModule} from './photos/photos.module';
 import {AppRoutingModule} from './app.routing.module';
 import {ErrosModule} from './erros/erros.module';
 import {OrdenarPorPipe} from './pipe/ordenar-por.pipe';
+import {HomeModule} from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {OrdenarPorPipe} from './pipe/ordenar-por.pipe';
     BrowserModule,
     PhotosModule,
     AppRoutingModule,
-    ErrosModule
+    ErrosModule,
+    HomeModule
   ],
   providers: [],
   exports: [],

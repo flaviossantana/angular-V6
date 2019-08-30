@@ -4,8 +4,13 @@ import {PhotoListComponent} from './photos/photo-list/photo-list.component';
 import {PhotoFormComponent} from './photos/photo-form/photo-form.component';
 import {PaginaNaoEncontradoComponent} from './erros/pagina-nao-encontrado/pagina-nao-encontrado.component';
 import {PhotoListResolver} from './photos/photo-list/photo-list.resolver';
+import {LoginComponent} from './home/login/login.component';
 
 const rotas: Routes = [
+  {
+    path: '',
+    component: LoginComponent
+  },
   {
     path: 'user/:usuario',
     component: PhotoListComponent,
