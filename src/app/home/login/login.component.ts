@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../core/auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ap-login',
@@ -9,7 +10,10 @@ import {AuthService} from '../../core/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router) {
   }
 
   isNaoAutorizado = false;
@@ -32,13 +36,14 @@ export class LoginComponent implements OnInit {
 
     this.authService.autenticar(usuario, senha)
       .subscribe(
-        () => console.log('Login realizado!')
-        ,
+        next => {
+          this.router.navigate(['user', usuario]);
+        },
         err => {
           this.isNaoAutorizado = true;
           this.loginForm.reset();
         }
-  );
+      );
 
 
   }
