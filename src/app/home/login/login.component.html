@@ -53,7 +53,28 @@
 
     </div>
 
+  <div
+    class="alert alert-danger mt-2"
+    *ngIf="(loginForm.get('usuario').invalid &&
+            loginForm.get('senha').invalid) &&
+            isNaoAutorizado">
+
+    <small
+      *ngIf="true"
+      class="text-danger d-block">
+      Erro ao fazer login!
+    </small>
+
+    <small
+      *ngIf="loginForm.get('senha').errors.minlength"
+      class="text-danger d-block">
+      Obrigatório ao menos 4 caracteres!
+    </small>
+
+  </div>
+
   <button
+    (click)="entrar()"
     [disabled]="!loginForm.valid"
     type="submit"
     class="btn btn-primary btn-block mt-1">
