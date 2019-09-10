@@ -10,7 +10,11 @@ export class AuthService {
   }
 
   autenticar(usuario: string, senha: string) {
-    return this.http.post(`${API_URL}/user/login`, {userName: usuario, password: senha});
+    return this.http
+      .post(
+        `${API_URL}/user/login`,
+        {userName: usuario, password: senha}
+      );
   }
 
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../core/auth/auth.service';
 import {Router} from '@angular/router';
@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router) {
   }
+
+  @ViewChild('usuarioInput') usuarioRef: ElementRef<HTMLInputElement>;
 
   isNaoAutorizado = false;
   loginForm: FormGroup;
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
         err => {
           this.isNaoAutorizado = true;
           this.loginForm.reset();
+          this.usuarioRef.nativeElement.focus();
         }
       );
 
