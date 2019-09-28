@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../core/auth/auth.service';
 import {Router} from '@angular/router';
+import {DetectorPlataformaService} from '../../core/detector-plataforma/detector-plataforma.service';
 
 @Component({
   selector: 'ap-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router) {
+    private router: Router,
+    private plataformaService: DetectorPlataformaService) {
   }
 
   @ViewChild('usuarioInput') usuarioRef: ElementRef<HTMLInputElement>;
@@ -38,17 +40,16 @@ export class LoginComponent implements OnInit {
 
     this.authService.autenticar(usuario, senha)
       .subscribe(
-        next => {
+        () => {
           this.router.navigate(['user', usuario]);
         },
-        err => {
+        () => {
           this.isNaoAutorizado = true;
           this.loginForm.reset();
-          this.usuarioRef.nativeElement.focus();
+          if (this.plataformaService.isPlatformBrowser()) {
+            this.usuarioRef.nativeElement.focus();
+          }
         }
       );
-
-
   }
-
 }
