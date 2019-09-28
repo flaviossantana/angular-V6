@@ -2,8 +2,8 @@
 
 <form [formGroup]="loginForm" class="form m-1">
 
-    <div class="form-group">
-      <input
+  <div class="form-group">
+    <input
         #usuarioInput
         required
         formControlName="usuario"
@@ -11,48 +11,45 @@
         placeholder="Usuário"
         autofocus>
 
-      <div
-        class="alert alert-danger"
-        *ngIf="loginForm.get('usuario').invalid &&
-        (loginForm.get('usuario').dirty || loginForm.get('usuario').touched)">
+    <div class="alert alert-danger"
+         *ngIf="loginForm.get('usuario').invalid &&
+           (loginForm.get('usuario').dirty || loginForm.get('usuario').touched)">
 
-        <small
-          *ngIf="loginForm.get('usuario').errors.required"
-          class="text-danger d-block">
-          Nome de usuário é obrigatório!
-        </small>
-      </div>
+      <ap-mensagem
+        [isErro]="loginForm.get('usuario').errors.required"
+        mensagem="Nome de usuário é obrigatório!">
+      </ap-mensagem>
+
     </div>
+  </div>
 
-    <div class="form-group mt-1">
+  <div class="form-group mt-1">
 
-      <input
-        required
-        formControlName="senha"
-        type="password"
-        class="form-control"
-        placeholder="Senha">
+    <input
+      required
+      formControlName="senha"
+      type="password"
+      class="form-control"
+      placeholder="Senha">
 
-      <div
-        class="alert alert-danger"
-        *ngIf="loginForm.get('senha').invalid &&
+    <div
+      class="alert alert-danger"
+      *ngIf="loginForm.get('senha').invalid &&
         (loginForm.get('senha').dirty || loginForm.get('senha').touched)">
 
-        <small
-          *ngIf="loginForm.get('senha').errors.required"
-          class="text-danger d-block">
-          Senha é obrigatório!
-        </small>
+      <ap-mensagem
+        [isErro]="loginForm.get('senha').errors.required"
+        mensagem="Senha é obrigatório!">
+      </ap-mensagem>
 
-        <small
-          *ngIf="loginForm.get('senha').errors.minlength"
-          class="text-danger d-block">
-          Obrigatório ao menos 4 caracteres!
-        </small>
-
-      </div>
+      <ap-mensagem
+        [isErro]="loginForm.get('senha').errors.minlength"
+        mensagem="Obrigatório ao menos 4 caracteres!">
+      </ap-mensagem>
 
     </div>
+
+  </div>
 
   <div
     class="alert alert-danger mt-2"
@@ -60,17 +57,15 @@
             loginForm.get('senha').invalid) &&
             isNaoAutorizado">
 
-    <small
-      *ngIf="true"
-      class="text-danger d-block">
-      Erro ao fazer login!
-    </small>
+    <ap-mensagem
+      [isErro]="true"
+      mensagem="Erro ao fazer login!">
+    </ap-mensagem>
 
-    <small
-      *ngIf="loginForm.get('senha').errors.minlength"
-      class="text-danger d-block">
-      Obrigatório ao menos 4 caracteres!
-    </small>
+      <ap-mensagem
+        [isErro]="loginForm.get('senha').errors.minlength"
+        mensagem="Obrigatório ao menos 4 caracteres!">
+      </ap-mensagem>
 
   </div>
 
