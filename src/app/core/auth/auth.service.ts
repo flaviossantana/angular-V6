@@ -18,7 +18,7 @@ export class AuthService {
       .post(
         `${API_URL}/user/login`,
         {userName: usuario, password: senha},
-        {observe: 'response'})
+        {observe: 'response'}) /*OPÇÃO PARA TER ACESSO AO HEADERS DA RESPOSTA*/
       .pipe(
         tap(res => {
           const chaveAutenticacao = res.headers.get('x-access-token');
