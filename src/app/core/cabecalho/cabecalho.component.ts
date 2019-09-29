@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {UsuarioService} from '../usuario/usuario.service';
 import {Usuario} from '../usuario/usuario';
 import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -10,13 +11,25 @@ import {Observable} from 'rxjs';
 })
 export class CabecalhoComponent {
 
-  constructor(usuarioService: UsuarioService) {
-    usuarioService.getusuario()
+  constructor(
+    private usuarioService: UsuarioService,
+    private router: Router
+  ) {
+    this.getUsuario();
+  }
+
+  usuario: Usuario;
+
+  private getUsuario(): void {
+    this.usuarioService
+      .getusuario()
       .subscribe(
         usuario => this.usuario = usuario
       );
   }
 
-  usuario: Usuario;
-
+  private sair(): void {
+    this.usuarioService.sair();
+    this.router.navigate(['']);
+  }
 }

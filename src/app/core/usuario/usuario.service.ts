@@ -16,13 +16,18 @@ export class UsuarioService {
 
   private usuarioSubject = new BehaviorSubject<Usuario>(null);
 
-  setToken(chave: string) {
+  setChave(chave: string) {
     this.tokenService.setToken(chave);
     this.decodificaENotifica();
   }
 
   getusuario() {
     return this.usuarioSubject.asObservable();
+  }
+
+  sair() {
+    this.tokenService.removerToken();
+    this.usuarioSubject.next(null);
   }
 
   private decodificaENotifica() {

@@ -23,7 +23,7 @@ export class AuthService {
       .pipe(
         tap(res => {
           const chaveAutenticacao = res.headers.get('x-access-token');
-          this.usurioService.setToken(chaveAutenticacao);
+          this.usurioService.setChave(chaveAutenticacao);
           console.log(`Usuário ${usuario} autenticado com a chave ${chaveAutenticacao}`);
         })
       );
