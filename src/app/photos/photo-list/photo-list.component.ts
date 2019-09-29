@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Subject} from 'rxjs';
 
 import {Photo} from '../photo';
 import {PhotoService} from '../photo.service';
