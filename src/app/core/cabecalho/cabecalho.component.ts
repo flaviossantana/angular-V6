@@ -11,13 +11,12 @@ import {Observable} from 'rxjs';
 export class CabecalhoComponent {
 
   constructor(usuarioService: UsuarioService) {
-    this.usuario$ = usuarioService.getusuario();
-    this.usuario$.subscribe((usuario) => {
-      this.usuario = usuario;
-    });
+    usuarioService.getusuario()
+      .subscribe(
+        usuario => this.usuario = usuario
+      );
   }
 
-  usuario$: Observable<Usuario>;
   usuario: Usuario;
 
 }
