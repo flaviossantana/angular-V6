@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {TokenService} from '../token/token.service';
-import {Subject} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import * as JWT from 'jwt-decode';
 
 import {Usuario} from './usuario';
@@ -10,11 +10,11 @@ export class UsuarioService {
 
   constructor(private tokenService: TokenService) {
     if (this.tokenService.getToken()) {
-      this.tokenService.getToken();
+      this.decodificaENotifica();
     }
   }
 
-  private usuarioSubject = new Subject<Usuario>();
+  private usuarioSubject = new BehaviorSubject<Usuario>(null);
 
   setToken(chave: string) {
     this.tokenService.setToken(chave);
