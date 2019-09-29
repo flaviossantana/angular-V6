@@ -6,7 +6,7 @@ import * as JWT from 'jwt-decode';
 import {Usuario} from './usuario';
 
 @Injectable({providedIn: 'root'})
-export class UsurioService {
+export class UsuarioService {
 
   constructor(private tokenService: TokenService) {
     if (this.tokenService.getToken()) {
