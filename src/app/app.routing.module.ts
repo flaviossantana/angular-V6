@@ -5,11 +5,13 @@ import {PhotoFormComponent} from './photos/photo-form/photo-form.component';
 import {PaginaNaoEncontradoComponent} from './erros/pagina-nao-encontrado/pagina-nao-encontrado.component';
 import {PhotoListResolver} from './photos/photo-list/photo-list.resolver';
 import {LoginComponent} from './home/login/login.component';
+import {AuthGuard} from './core/auth/auth-.guard';
 
 const rotas: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'user/:usuario',

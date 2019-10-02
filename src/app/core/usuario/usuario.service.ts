@@ -15,6 +15,7 @@ export class UsuarioService {
   }
 
   private usuarioSubject = new BehaviorSubject<Usuario>(null);
+  private nomeUsuario: string;
 
   setChave(chave: string) {
     this.tokenService.setToken(chave);
@@ -33,7 +34,15 @@ export class UsuarioService {
   private decodificaENotifica() {
     const chave = this.tokenService.getToken();
     const usuario = JWT(chave) as Usuario;
+    this.nomeUsuario = usuario.name;
     this.usuarioSubject.next(usuario);
   }
 
+  isLogado() {
+    return this.tokenService.temToken();
+  }
+
+  getNomeUsuario(): string {
+    return this.nomeUsuario;
+  }
 }
