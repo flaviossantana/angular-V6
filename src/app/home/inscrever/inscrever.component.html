@@ -9,6 +9,23 @@
       class="form-control"
       placeholder="E-mail"
       autofocus>
+
+    <div class="alert alert-danger mt-1"
+         *ngIf="inscreverForm.get('email').invalid &&
+           (inscreverForm.get('email').dirty || inscreverForm.get('email').touched)">
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('email').errors?.required"
+        mensagem="E-mail é obrigatório!">
+      </ap-mensagem>
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('email').errors?.email"
+        mensagem="E-mail inválido!">
+      </ap-mensagem>
+
+    </div>
+
   </div>
 
   <div class="form-group mt-1">
@@ -18,6 +35,28 @@
       class="form-control"
       placeholder="Nome completo"
       autofocus>
+
+    <div class="alert alert-danger mt-1"
+         *ngIf="inscreverForm.get('nomeCompleto').invalid &&
+           (inscreverForm.get('nomeCompleto').dirty || inscreverForm.get('nomeCompleto').touched)">
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('nomeCompleto').errors?.required"
+        mensagem="Nome é obrigatório!">
+      </ap-mensagem>
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('nomeCompleto').errors?.minlength"
+        mensagem="Use no mínimo 2 caracteres">
+      </ap-mensagem>
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('nomeCompleto').errors?.maxlength"
+        mensagem="Use no máximo 20 caracteres">
+      </ap-mensagem>
+
+    </div>
+
   </div>
 
   <div class="form-group mt-1">
@@ -27,15 +66,66 @@
       class="form-control"
       placeholder="Usuário"
       autofocus>
+
+    <div class="alert alert-danger mt-1"
+         *ngIf="inscreverForm.get('usuario').invalid &&
+           (inscreverForm.get('usuario').dirty || inscreverForm.get('usuario').touched)">
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('usuario').errors?.required"
+        mensagem="Nome de usuário é obrigatório!">
+      </ap-mensagem>
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('usuario').errors?.pattern"
+        mensagem="Nome deve ser minúsculo">
+      </ap-mensagem>
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('usuario').errors?.minlength"
+        mensagem="Use no mínimo 2 caracteres">
+      </ap-mensagem>
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('usuario').errors?.maxlength"
+        mensagem="Use no máximo 10 caracteres">
+      </ap-mensagem>
+
+    </div>
+
+
   </div>
 
   <div class="form-group mt-1">
     <input
       required
+      type="password"
       formControlName="senha"
       class="form-control"
       placeholder="Senha"
       autofocus>
+
+    <div class="alert alert-danger mt-1"
+         *ngIf="inscreverForm.get('senha').invalid &&
+           (inscreverForm.get('senha').dirty || inscreverForm.get('senha').touched)">
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('senha').errors?.required"
+        mensagem="Senha é obrigatório!">
+      </ap-mensagem>
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('senha').errors?.minlength"
+        mensagem="Use no mínimo 4 caracteres">
+      </ap-mensagem>
+
+      <ap-mensagem
+        [isErro]="inscreverForm.get('senha').errors?.maxlength"
+        mensagem="Use no máximo 40 caracteres">
+      </ap-mensagem>
+
+    </div>
+
   </div>
 
   <button
@@ -47,4 +137,4 @@
 
 </form>
 
-<p class="m-1">Já é usuário? <a>Iniciar Sessão</a></p>
+<p class="m-1">Já é usuário? <a [routerLink]="['']">Iniciar Sessão</a></p>

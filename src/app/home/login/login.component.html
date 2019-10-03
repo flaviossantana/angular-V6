@@ -11,7 +11,7 @@
         placeholder="Usuário"
         autofocus>
 
-    <div class="alert alert-danger"
+    <div class="alert alert-danger mt-1"
          *ngIf="loginForm.get('usuario').invalid &&
            (loginForm.get('usuario').dirty || loginForm.get('usuario').touched)">
 
@@ -33,7 +33,7 @@
       placeholder="Senha">
 
     <div
-      class="alert alert-danger"
+      class="alert alert-danger mt-1"
       *ngIf="loginForm.get('senha').invalid &&
         (loginForm.get('senha').dirty || loginForm.get('senha').touched)">
 
