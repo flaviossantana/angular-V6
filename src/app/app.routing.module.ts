@@ -6,12 +6,17 @@ import {PaginaNaoEncontradoComponent} from './erros/pagina-nao-encontrado/pagina
 import {PhotoListResolver} from './photos/photo-list/photo-list.resolver';
 import {LoginComponent} from './home/login/login.component';
 import {AuthGuard} from './core/auth/auth-.guard';
+import {InscreverComponent} from './home/inscrever/inscrever.component';
 
 const rotas: Routes = [
   {
     path: '',
     component: LoginComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'inscrever',
+    component: InscreverComponent
   },
   {
     path: 'user/:usuario',

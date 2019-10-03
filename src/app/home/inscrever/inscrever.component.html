@@ -1,0 +1,48 @@
+<h4 class="text-center m-4">Inscreva-se para entrar em um novo mundo!</h4>
+
+<form [formGroup]="inscreverForm" class="form m-1">
+
+  <div class="form-group mt-1">
+    <input
+      required
+      formControlName="email"
+      class="form-control"
+      placeholder="E-mail"
+      autofocus>
+  </div>
+
+  <div class="form-group mt-1">
+    <input
+      required
+      formControlName="nomeCompleto"
+      class="form-control"
+      placeholder="Nome completo"
+      autofocus>
+  </div>
+
+  <div class="form-group mt-1">
+    <input
+      required
+      formControlName="usuario"
+      class="form-control"
+      placeholder="Usuário"
+      autofocus>
+  </div>
+
+  <div class="form-group mt-1">
+    <input
+      required
+      formControlName="senha"
+      class="form-control"
+      placeholder="Senha"
+      autofocus>
+  </div>
+
+  <button
+    [disabled]="!inscreverForm.valid"
+    type="submit"
+    class="btn btn-primary btn-block">
+    Cadastrar
+  </button>
+
+</form>
