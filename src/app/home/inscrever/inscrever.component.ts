@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {minusculoValidador} from '../../core/validators/minusculo.validator';
+import {emailValidator} from '../../core/validators/email.validator';
 
 @Component({
   templateUrl: 'inscrever.component.html'
@@ -18,7 +20,7 @@ export class InscreverComponent implements OnInit {
       email: ['',
         [
           Validators.required,
-          Validators.email
+          emailValidator
         ]
       ],
       nomeCompleto: ['',
@@ -31,7 +33,7 @@ export class InscreverComponent implements OnInit {
       usuario: ['',
         [
           Validators.required,
-          Validators.pattern(/^[a-z0-9_\-]+$/),
+          minusculoValidador,
           Validators.minLength(2),
           Validators.maxLength(10)
         ]
