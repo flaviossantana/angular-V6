@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../core/auth/auth.service';
 import {Router} from '@angular/router';
 import {DetectorPlataformaService} from '../../core/detector-plataforma/detector-plataforma.service';
+import {UsuarioJaUtilizadoValidatorService} from '../inscrever/usuario-ja-utilizado.validator.service';
 
 @Component({
   selector: 'ap-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private plataformaService: DetectorPlataformaService) {
+    private plataformaService: DetectorPlataformaService,
+    private usuarioJaUtilizadoValidator: UsuarioJaUtilizadoValidatorService) {
   }
 
   @ViewChild('usuarioInput') usuarioRef: ElementRef<HTMLInputElement>;
