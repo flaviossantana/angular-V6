@@ -92,6 +92,11 @@
         mensagem="Use no máximo 10 caracteres">
       </ap-mensagem>
 
+      <ap-mensagem
+        [isErro]="inscreverForm.get('usuario').errors?.usaurioutilizado"
+        mensagem="Usuário já utilizado">
+      </ap-mensagem>
+
     </div>
 
 
@@ -130,7 +135,7 @@
   </div>
 
   <button
-    [disabled]="!inscreverForm.valid"
+    [disabled]="!inscreverForm.valid || inscreverForm.pending"
     type="submit"
     class="btn btn-primary btn-block">
     Cadastrar
