@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Photo} from './photo';
 import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
 
-const API = 'http://localhost:3000';
+const API = environment.API;
 
 @Injectable({providedIn: 'root'})
 export class PhotoService {
