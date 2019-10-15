@@ -1,6 +1,6 @@
 <h4 class="text-center m-4">Inscreva-se para entrar em um novo mundo!</h4>
 
-<form [formGroup]="inscreverForm" class="form m-1">
+<form [formGroup]="inscreverForm" class="form m-1" (submit)="cadastrar()">
 
   <div class="form-group mt-1">
     <input
@@ -32,27 +32,27 @@
   <div class="form-group mt-1">
     <input
       required
-      formControlName="nomeCompleto"
+      formControlName="fullName"
       class="form-control"
       placeholder="Nome completo"
       autofocus>
 
     <div class="alert alert-danger mt-1"
-         *ngIf="inscreverForm.get('nomeCompleto').invalid &&
-           (inscreverForm.get('nomeCompleto').dirty || inscreverForm.get('nomeCompleto').touched)">
+         *ngIf="inscreverForm.get('fullName').invalid &&
+           (inscreverForm.get('fullName').dirty || inscreverForm.get('fullName').touched)">
 
       <ap-mensagem
-        [isErro]="inscreverForm.get('nomeCompleto').errors?.required"
+        [isErro]="inscreverForm.get('fullName').errors?.required"
         mensagem="Nome é obrigatório!">
       </ap-mensagem>
 
       <ap-mensagem
-        [isErro]="inscreverForm.get('nomeCompleto').errors?.minlength"
+        [isErro]="inscreverForm.get('fullName').errors?.minlength"
         mensagem="Use no mínimo 2 caracteres">
       </ap-mensagem>
 
       <ap-mensagem
-        [isErro]="inscreverForm.get('nomeCompleto').errors?.maxlength"
+        [isErro]="inscreverForm.get('fullName').errors?.maxlength"
         mensagem="Use no máximo 20 caracteres">
       </ap-mensagem>
 
@@ -63,37 +63,37 @@
   <div class="form-group mt-1">
     <input
       required
-      formControlName="usuario"
+      formControlName="userName"
       class="form-control"
       placeholder="Usuário"
       autofocus>
 
     <div class="alert alert-danger mt-1"
-         *ngIf="inscreverForm.get('usuario').invalid &&
-           (inscreverForm.get('usuario').dirty || inscreverForm.get('usuario').touched)">
+         *ngIf="inscreverForm.get('userName').invalid &&
+           (inscreverForm.get('userName').dirty || inscreverForm.get('userName').touched)">
 
       <ap-mensagem
-        [isErro]="inscreverForm.get('usuario').errors?.required"
+        [isErro]="inscreverForm.get('userName').errors?.required"
         mensagem="Nome de usuário é obrigatório!">
       </ap-mensagem>
 
       <ap-mensagem
-        [isErro]="inscreverForm.get('usuario').errors?.minusculo"
-        mensagem="Nome deve ser minúsculo">
+        [isErro]="inscreverForm.get('userName').errors?.minusculo"
+        mensagem="Nome deve ser userName">
       </ap-mensagem>
 
       <ap-mensagem
-        [isErro]="inscreverForm.get('usuario').errors?.minlength"
+        [isErro]="inscreverForm.get('userName').errors?.minlength"
         mensagem="Use no mínimo 2 caracteres">
       </ap-mensagem>
 
       <ap-mensagem
-        [isErro]="inscreverForm.get('usuario').errors?.maxlength"
+        [isErro]="inscreverForm.get('userName').errors?.maxlength"
         mensagem="Use no máximo 10 caracteres">
       </ap-mensagem>
 
       <ap-mensagem
-        [isErro]="inscreverForm.get('usuario').errors?.usaurioutilizado"
+        [isErro]="inscreverForm.get('userName').errors?.usaurioutilizado"
         mensagem="Usuário já utilizado">
       </ap-mensagem>
 
@@ -106,27 +106,27 @@
     <input
       required
       type="password"
-      formControlName="senha"
+      formControlName="password"
       class="form-control"
       placeholder="Senha"
       autofocus>
 
     <div class="alert alert-danger mt-1"
-         *ngIf="inscreverForm.get('senha').invalid &&
-           (inscreverForm.get('senha').dirty || inscreverForm.get('senha').touched)">
+         *ngIf="inscreverForm.get('password').invalid &&
+           (inscreverForm.get('password').dirty || inscreverForm.get('password').touched)">
 
       <ap-mensagem
-        [isErro]="inscreverForm.get('senha').errors?.required"
+        [isErro]="inscreverForm.get('password').errors?.required"
         mensagem="Senha é obrigatório!">
       </ap-mensagem>
 
       <ap-mensagem
-        [isErro]="inscreverForm.get('senha').errors?.minlength"
+        [isErro]="inscreverForm.get('password').errors?.minlength"
         mensagem="Use no mínimo 4 caracteres">
       </ap-mensagem>
 
       <ap-mensagem
-        [isErro]="inscreverForm.get('senha').errors?.maxlength"
+        [isErro]="inscreverForm.get('password').errors?.maxlength"
         mensagem="Use no máximo 40 caracteres">
       </ap-mensagem>
 

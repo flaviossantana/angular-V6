@@ -4,6 +4,7 @@ import {BehaviorSubject} from 'rxjs';
 import * as JWT from 'jwt-decode';
 
 import {Usuario} from './usuario';
+import {NovoUsuario} from "../../home/inscrever/NovoUsuario";
 
 @Injectable({providedIn: 'root'})
 export class UsuarioService {
@@ -45,4 +46,5 @@ export class UsuarioService {
   getNomeUsuario(): string {
     return this.nomeUsuario;
   }
+
 }
