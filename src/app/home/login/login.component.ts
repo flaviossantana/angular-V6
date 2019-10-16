@@ -16,8 +16,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private plataformaService: DetectorPlataformaService,
-    private usuarioJaUtilizadoValidator: UsuarioJaUtilizadoValidatorService) {
+    private plataformaService: DetectorPlataformaService) {
   }
 
   @ViewChild('usuarioInput') usuarioRef: ElementRef<HTMLInputElement>;
@@ -28,12 +27,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       usuario: ['', Validators.required],
-      senha: ['', [
-        Validators.required,
-        Validators.minLength(4)
-      ]
+      senha: ['',
+        [
+          Validators.required,
+          Validators.minLength(4)
+        ]
       ]
     });
+    this.usuarioFocus();
   }
 
   entrar() {
@@ -48,10 +49,15 @@ export class LoginComponent implements OnInit {
         () => {
           this.isNaoAutorizado = true;
           this.loginForm.reset();
-          if (this.plataformaService.isPlatformBrowser()) {
-            this.usuarioRef.nativeElement.focus();
-          }
+
+          this.usuarioFocus();
         }
       );
+  }
+
+  private usuarioFocus() {
+    if (this.plataformaService.isPlatformBrowser()) {
+      this.usuarioRef.nativeElement.focus();
+    }
   }
 }

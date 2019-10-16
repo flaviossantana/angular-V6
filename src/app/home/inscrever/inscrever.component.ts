@@ -1,4 +1,4 @@
-import{Component, OnInit}from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators}from '@angular/forms';
 import {minusculoValidador}from '../../core/validators/minusculo.validator';
 import {emailValidator}from '../../core/validators/email.validator';
@@ -7,6 +7,7 @@ import {NovoUsuario} from "./NovoUsuario";
 import {UsuarioService} from "../../core/usuario/usuario.service";
 import {InscreverService} from "./inscrever.service";
 import {Route, Router} from "@angular/router";
+import {DetectorPlataformaService} from "../../core/detector-plataforma/detector-plataforma.service";
 
 @Component({
 templateUrl: 'inscrever.component.html'
@@ -17,11 +18,13 @@ constructor(
     private fb: FormBuilder,
     private router: Router,
     private usuarioJaUtilizadoValidator: UsuarioJaUtilizadoValidatorService,
-    private inscreverService: InscreverService
-  ) {
+    private inscreverService: InscreverService,
+    private plataformaService: DetectorPlataformaService) {
   }
 
+
   inscreverForm: FormGroup;
+  @ViewChild('emailInput') emailRef: ElementRef<HTMLInputElement>;
 
   ngOnInit(): void {
     this.inscreverForm = this.fb.group({
@@ -54,8 +57,8 @@ constructor(
           Validators.maxLength(40)
         ]
       ]
-    })
-    ;
+    });
+    this.emailFocus();
   }
 
   cadastrar(){
@@ -67,6 +70,12 @@ constructor(
         this.router.navigate(['']),
         err => console.log('ERRO!')
       );
+  }
+
+  private emailFocus() {
+    if (this.plataformaService.isPlatformBrowser()) {
+      this.emailRef.nativeElement.focus();
+    }
   }
 
 }
