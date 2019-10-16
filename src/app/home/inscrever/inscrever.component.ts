@@ -1,20 +1,19 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators}from '@angular/forms';
-import {minusculoValidador}from '../../core/validators/minusculo.validator';
-import {emailValidator}from '../../core/validators/email.validator';
-import {UsuarioJaUtilizadoValidatorService}from './usuario-ja-utilizado.validator.service';
-import {NovoUsuario} from "./NovoUsuario";
-import {UsuarioService} from "../../core/usuario/usuario.service";
-import {InscreverService} from "./inscrever.service";
-import {Route, Router} from "@angular/router";
-import {DetectorPlataformaService} from "../../core/detector-plataforma/detector-plataforma.service";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {minusculoValidador} from '../../core/validators/minusculo.validator';
+import {emailValidator} from '../../core/validators/email.validator';
+import {UsuarioJaUtilizadoValidatorService} from './usuario-ja-utilizado.validator.service';
+import {NovoUsuario} from './NovoUsuario';
+import {InscreverService} from './inscrever.service';
+import {Router} from '@angular/router';
+import {DetectorPlataformaService} from '../../core/detector-plataforma/detector-plataforma.service';
 
 @Component({
-templateUrl: 'inscrever.component.html'
+  templateUrl: 'inscrever.component.html'
 })
 export class InscreverComponent implements OnInit {
 
-constructor(
+  constructor(
     private fb: FormBuilder,
     private router: Router,
     private usuarioJaUtilizadoValidator: UsuarioJaUtilizadoValidatorService,
@@ -61,14 +60,14 @@ constructor(
     this.emailFocus();
   }
 
-  cadastrar(){
-    const novoUsuario =  this.inscreverForm.getRawValue() as NovoUsuario;
+  cadastrar() {
+    const novoUsuario = this.inscreverForm.getRawValue() as NovoUsuario;
 
     this.inscreverService
       .cadastrar(novoUsuario)
       .subscribe(() =>
-        this.router.navigate(['']),
-        err => console.log('ERRO!')
+          this.router.navigate(['']),
+        () => console.log('ERRO!')
       );
   }
 
