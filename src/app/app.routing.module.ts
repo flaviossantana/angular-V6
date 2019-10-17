@@ -1,44 +1,23 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {PhotoListComponent} from './photos/photo-list/photo-list.component';
-import {PhotoFormComponent} from './photos/photo-form/photo-form.component';
-import {PaginaNaoEncontradoComponent} from './erros/pagina-nao-encontrado/pagina-nao-encontrado.component';
-import {PhotoListResolver} from './photos/photo-list/photo-list.resolver';
-import {LoginComponent} from './home/login/login.component';
-import {AuthGuard} from './core/auth/auth-.guard';
-import {InscreverComponent} from './home/inscrever/inscrever.component';
-import {HomeComponent} from "./home/home.component";
 
 const rotas: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    canActivate: [AuthGuard],
-    children: [
-      {
-        path: '',
-        component: LoginComponent
-      },
-      {
-        path: 'inscrever',
-        component: InscreverComponent
-      }
-    ]
+    pathMatch: 'full',
+    redirectTo: 'home'
   },
   {
-    path: 'user/:usuario',
-    component: PhotoListComponent,
-    resolve: {
-      photos: PhotoListResolver
-    }
+    path: 'user',
+    loadChildren: './photos/photos.module#PhotosModule'
   },
   {
-    path: 'p/add',
-    component: PhotoFormComponent
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule'
   },
   {
     path: '**',
-    component: PaginaNaoEncontradoComponent
+    loadChildren: './erros/erros.module#ErrosModule'
   }
 ];
 

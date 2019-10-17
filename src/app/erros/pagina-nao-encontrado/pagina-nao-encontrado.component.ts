@@ -27,15 +27,11 @@ export class PaginaNaoEncontradoComponent implements OnInit {
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(event) {
 
-    console.log(event);
     this.mouseY = event.clientY;
     this.yAxis = (this.pageY / 2 - this.mouseY) / this.pageY * 300;
 
     this.mouseX = event.clientX / -this.pageX;
     this.xAxis = this.mouseX * 100 - 100;
-
-    console.log(this.boxGhostEyes.nativeElement.className);
-
   }
 
 }

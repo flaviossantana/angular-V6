@@ -6,7 +6,8 @@ import {CommonModule} from '@angular/common';
 import {VmensagemModule} from '../shared/components/vmensagem/vmensagem.module';
 import {InscreverComponent} from './inscrever/inscrever.component';
 import {RouterModule} from '@angular/router';
-import {HomeComponent} from "./home.component";
+import {HomeComponent} from './home.component';
+import {HomeRoutingModule} from './home.routing.module';
 
 @NgModule({
   imports: [
@@ -14,12 +15,13 @@ import {HomeComponent} from "./home.component";
     CommonModule,
     VmensagemModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    HomeRoutingModule
   ],
   declarations: [
+    HomeComponent,
     LoginComponent,
-    InscreverComponent,
-    HomeComponent
+    InscreverComponent
   ]
 })
 export class HomeModule {
