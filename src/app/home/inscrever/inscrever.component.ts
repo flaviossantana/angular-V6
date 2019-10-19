@@ -26,6 +26,11 @@ export class InscreverComponent implements OnInit {
   @ViewChild('emailInput') emailRef: ElementRef<HTMLInputElement>;
 
   ngOnInit(): void {
+    this.construirFomulario();
+    this.emailFocus();
+  }
+
+  private construirFomulario() {
     this.inscreverForm = this.fb.group({
       email: ['',
         [
@@ -57,7 +62,6 @@ export class InscreverComponent implements OnInit {
         ]
       ]
     });
-    this.emailFocus();
   }
 
   cadastrar() {
