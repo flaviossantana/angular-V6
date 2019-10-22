@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {PhotoService} from "../photo.service";
+import {Photo} from "../photo";
 
 @Component({
   selector: 'ap-photo-form',
@@ -9,9 +11,12 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class PhotoFormComponent implements OnInit {
 
   constructor(
-    private fb: FormBuilder
-  ) { }
+    private fb: FormBuilder,
+    private fotoService: PhotoService
+  ) {
+  }
 
+  arquivo: File;
   fotoForm: FormGroup;
 
   ngOnInit() {
@@ -20,14 +25,34 @@ export class PhotoFormComponent implements OnInit {
         '',
         Validators.required
       ],
-      description : [
+      description: [
         '',
         Validators.maxLength(300)
       ],
-      allowComments : [
+      allowComments: [
         true
       ]
     })
+  }
+
+  enviarFoto() {
+
+    const allowComments = this.fotoForm.get('allowComments').value;
+    const description = this.fotoForm.get('description').value;
+
+    const postagem = {
+      allowComments,
+      description
+    } as Photo;
+
+    this.fotoService.adicionar(postagem).subscribe(
+      (retorno) => {
+        console.log(retorno);
+      },
+      (erro) => {
+        console.log(erro);
+      });
+
   }
 
 }

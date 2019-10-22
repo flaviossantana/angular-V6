@@ -1,11 +1,15 @@
 <div class="container">
 
-  <form [formGroup]="fotoForm" class="row">
+  <form
+    [formGroup]="fotoForm"
+    class="row"
+    (submit)="enviarFoto()" >
 
     <div class="col-md-6 mb-2">
 
       <div class="custom-file">
         <input
+          (change)="arquivo = $event.target.files[0]"
           formControlName="file"
           class="custom-file-input"
           type="file"

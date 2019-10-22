@@ -22,4 +22,9 @@ export class PhotoService {
     return this.http
       .get<Photo[]>(API + '/' + usuario + '/photos', {params});
   }
+
+  adicionar(foto: Photo) {
+    return this.http.post(API + '/photos/upload', foto);
+  }
+
 }
