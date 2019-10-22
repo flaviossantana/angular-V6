@@ -16,7 +16,7 @@ export class PhotoFormComponent implements OnInit {
   ) {
   }
 
-  arquivo: File;
+  foto: File;
   fotoForm: FormGroup;
 
   ngOnInit() {
@@ -35,23 +35,39 @@ export class PhotoFormComponent implements OnInit {
     })
   }
 
+  aoMudarFoto(event) {
+    if (this.isFotoSelecionada(event)) {
+      let leitorArquivo = new FileReader();
+      let arquivo = event.target.files[0];
+
+      leitorArquivo.readAsDataURL(arquivo);
+      leitorArquivo.onload = () => {
+        leitorArquivo.result;
+      }
+    }
+  }
+
+  private isFotoSelecionada(event) {
+    return event.target.files && event.target.files.length > 0;
+  }
+
   enviarFoto() {
 
-    const allowComments = this.fotoForm.get('allowComments').value;
-    const description = this.fotoForm.get('description').value;
+    const descricao = this.fotoForm.get('description').value;
+    const permiteComentario = this.fotoForm.get('allowComments').value;
 
-    const postagem = {
-      allowComments,
-      description
-    } as Photo;
-
-    this.fotoService.adicionar(postagem).subscribe(
-      (retorno) => {
-        console.log(retorno);
-      },
-      (erro) => {
-        console.log(erro);
-      });
+    this.fotoService
+      .enviar(
+        descricao,
+        permiteComentario,
+        this.foto)
+      .subscribe(
+        (retorno) => {
+          console.log(retorno);
+        },
+        (erro) => {
+          console.log(erro);
+        });
 
   }
 

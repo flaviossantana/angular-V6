@@ -23,8 +23,15 @@ export class PhotoService {
       .get<Photo[]>(API + '/' + usuario + '/photos', {params});
   }
 
-  adicionar(foto: Photo) {
-    return this.http.post(API + '/photos/upload', foto);
+  enviar(description: string, allowComments: boolean, arquivo: File) {
+    const fd = new FormData();
+    fd.append('description', description);
+    fd.append('allowComments', this.boolStr(allowComments));
+    fd.append('imageFile', arquivo);
+    return this.http.post(API + '/photos/upload', fd);
   }
 
+  private boolStr(allowComments: boolean) {
+    return allowComments ? 'true' : 'false';
+  }
 }
