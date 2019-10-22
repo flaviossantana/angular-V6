@@ -19,8 +19,6 @@ export class PhotoComponent {
     } else {
       this._local = local;
     }
-
-
   }
 
   get local(){
