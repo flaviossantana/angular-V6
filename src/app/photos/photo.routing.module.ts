@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {PhotoListComponent} from './photo-list/photo-list.component';
 import {PhotoListResolver} from './photo-list/photo-list.resolver';
 import {PhotoFormComponent} from './photo-form/photo-form.component';
+import {RequerAutenticacao} from "../core/auth/requer-autenticacao.guard";
 
 const rotas: Routes = [
   {
@@ -14,7 +15,8 @@ const rotas: Routes = [
   },
   {
     path: 'p/add',
-    component: PhotoFormComponent
+    component: PhotoFormComponent,
+    canActivate: [RequerAutenticacao]
   },
 ];
 
