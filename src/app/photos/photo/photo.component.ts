@@ -13,16 +13,19 @@ export class PhotoComponent {
   @Input() descricao = '';
   @Input() dataPostagem = '';
 
-  @Input() set local(local: string){
-    if(!local.startsWith('data')){
-      this._local = NUVEM + local;
-    } else {
-      this._local = local;
-    }
+  @Input() set local(local: string) {
+    this._local = this.definirLocal(local);
   }
 
-  get local(){
+  get local() {
     return this._local;
-}
+  }
 
+  definirLocal(local: string): string{
+    return this.isBase64(local) ? local : NUVEM + local;
+  }
+
+  private isBase64(local: string) {
+    return local.startsWith('data');
+  }
 }
