@@ -20,6 +20,7 @@ export class PhotoFormComponent implements OnInit {
 
   foto: File;
   fotoForm: FormGroup;
+  imagemBase64: string;
 
   ngOnInit() {
     this.fotoForm = this.fb.group({
@@ -45,7 +46,7 @@ export class PhotoFormComponent implements OnInit {
 
       leitorArquivoBase64.readAsDataURL(arquivo);
       leitorArquivoBase64.onload = () => {
-        leitorArquivoBase64.result;
+        this.imagemBase64 = leitorArquivoBase64.result;
       }
     }
   }

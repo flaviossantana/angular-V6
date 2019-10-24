@@ -7,7 +7,7 @@
 
     <div class="col-md-6">
 
-      <div class="custom-file">
+      <div class="custom-file mb-5" *ngIf="!imagemBase64">
 
         <button
           type="button"
@@ -24,9 +24,10 @@
           class="custom-file-input"
           type="file"
           accept="image/*">
+
       </div>
 
-      <div class="alert alert-danger mt-1"
+      <div class="col-md-6 alert alert-danger mt-5"
            *ngIf="fotoForm.get('file').invalid &&
            (fotoForm.get('file').dirty || fotoForm.get('file').touched)">
 
@@ -36,10 +37,14 @@
         </ap-mensagem>
 
       </div>
+
+      <ap-photo *ngIf="imagemBase64"
+        [local]="imagemBase64">
+      </ap-photo>
+
     </div>
 
-
-    <div class="col-md-6 mt-md-0 mt-5">
+    <div class="col-md-6 mt-md-0 mt-3">
       <div class="form-group">
         <textarea
           formControlName="description"
