@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PhotoService} from "../photo.service";
 import {Photo} from "../photo";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'ap-photo-form',
@@ -12,7 +13,8 @@ export class PhotoFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private fotoService: PhotoService
+    private fotoService: PhotoService,
+    private router: Router
   ) {
   }
 
@@ -37,12 +39,13 @@ export class PhotoFormComponent implements OnInit {
 
   aoMudarFoto(event) {
     if (this.isFotoSelecionada(event)) {
-      let leitorArquivo = new FileReader();
+      let leitorArquivoBase64 = new FileReader();
       let arquivo = event.target.files[0];
+      this.foto = arquivo;
 
-      leitorArquivo.readAsDataURL(arquivo);
-      leitorArquivo.onload = () => {
-        leitorArquivo.result;
+      leitorArquivoBase64.readAsDataURL(arquivo);
+      leitorArquivoBase64.onload = () => {
+        leitorArquivoBase64.result;
       }
     }
   }
@@ -63,7 +66,7 @@ export class PhotoFormComponent implements OnInit {
         this.foto)
       .subscribe(
         (retorno) => {
-          console.log(retorno);
+          this.router.navigate(['']);
         },
         (erro) => {
           console.log(erro);

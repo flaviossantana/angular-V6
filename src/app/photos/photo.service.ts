@@ -24,14 +24,14 @@ export class PhotoService {
   }
 
   enviar(description: string, allowComments: boolean, arquivo: File) {
-    const fd = new FormData();
-    fd.append('description', description);
-    fd.append('allowComments', this.boolStr(allowComments));
-    fd.append('imageFile', arquivo);
-    return this.http.post(API + '/photos/upload', fd);
+    const formData = new FormData();
+    formData.append('description', description);
+    formData.append('allowComments', this.isPermiteComentario(allowComments));
+    formData.append('imageFile', arquivo);
+    return this.http.post(API + '/photos/upload', formData);
   }
 
-  private boolStr(allowComments: boolean) {
+  private isPermiteComentario(allowComments: boolean) {
     return allowComments ? 'true' : 'false';
   }
 }
