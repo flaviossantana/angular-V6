@@ -3,20 +3,27 @@
   <form
     [formGroup]="fotoForm"
     class="row"
-    (submit)="enviarFoto()" >
+    (submit)="enviarFoto()">
 
-    <div class="col-md-6 mb-2">
+    <div class="col-md-6">
 
       <div class="custom-file">
+
+        <button
+          type="button"
+          (click)="fileInput.click()"
+          class="btn btn-primary">
+          <i class="fa fa-image fa-4x align-middle"></i>
+        </button>
+
         <input
+          #fileInput
+          hidden
           (change)="aoMudarFoto($event)"
           formControlName="file"
           class="custom-file-input"
           type="file"
           accept="image/*">
-        <label
-          class="custom-file-label">Escolha a foto
-        </label>
       </div>
 
       <div class="alert alert-danger mt-1"
@@ -25,14 +32,14 @@
 
         <ap-mensagem
           [isErro]="fotoForm.get('file').errors?.required"
-          mensagem="Foto é obrigatório!">
+          mensagem="Por favor, selecione uma foto">
         </ap-mensagem>
 
       </div>
     </div>
 
 
-    <div class="col-md-6">
+    <div class="col-md-6 mt-md-0 mt-5">
       <div class="form-group">
         <textarea
           formControlName="description"
