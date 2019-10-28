@@ -8,7 +8,7 @@ import {Photo} from '../../photo';
 export class PhotosComponent implements OnInit, OnChanges {
 
   @Input() fotos: Photo[] = [];
-  novasLinhas: any[] = [];
+  novasLinhas: Photo[] = [];
 
   ngOnInit(): void {
 

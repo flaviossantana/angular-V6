@@ -9,6 +9,7 @@ import {PhotoModule} from '../photo/photo.module';
 import {CardModule} from '../../shared/components/card/card.module';
 import {PhotosModule} from './photos/photos.module';
 import {PesquisaComponent} from './pesquisa/pesquisa.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
