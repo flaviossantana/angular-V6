@@ -5,6 +5,7 @@ import {PhotoListModule} from './photo-list/photo-list.module';
 import {PhotoFormModule} from './photo-form/photo-form.module';
 import {PhotoRoutingModule} from './photo.routing.module';
 import {PhotoModule} from './photo/photo.module';
+import {FotoDetalheModule} from "./photo-detail/foto-detalhe.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {PhotoModule} from './photo/photo.module';
     PhotoListModule,
     PhotoFormModule,
     PhotoModule,
-    PhotoRoutingModule
+    PhotoRoutingModule,
+    FotoDetalheModule
   ],
   providers: [
 
