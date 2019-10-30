@@ -34,4 +34,9 @@ export class PhotoService {
   private isPermiteComentario(allowComments: boolean) {
     return allowComments ? 'true' : 'false';
   }
+
+  buscarPorId(id: string){
+    return this.http.get<Photo>(API + '/photos/' + id);
+  }
+
 }

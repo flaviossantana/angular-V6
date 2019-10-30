@@ -3,7 +3,8 @@ import {Photo} from '../../photo';
 
 @Component({
   selector: 'ap-photos',
-  templateUrl: 'photos-component.html'
+  templateUrl: 'photos-component.html',
+  styleUrls: ['../../../shared/components/card/card.component.scss']
 })
 export class PhotosComponent implements OnInit, OnChanges {
 

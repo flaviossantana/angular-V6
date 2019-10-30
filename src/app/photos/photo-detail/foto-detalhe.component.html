@@ -1,1 +1,32 @@
-<h1>Detalhe da Foto<h1>
+<div class="bg-white border" *ngIf="foto">
+  <div class="row m-1">
+    <div class="col-lg-8">
+      <ap-photo
+        [local]="foto.url"
+        [descricao]="foto.description">
+      </ap-photo>
+    </div>
+
+    <div class="col-lg-4 mt-2 mt-lg-0">
+      <small>
+        <p class="text-left quebra-texto">{{foto.description}}</p>
+        <hr>
+      </small>
+
+      <div class="mt-4">
+        <form>
+          <div class="input-group">
+            <textarea class="form-control quebra-texto"></textarea>
+            <div class="input-group-append">
+              <button class="btn btn-primary">
+                Publicar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
