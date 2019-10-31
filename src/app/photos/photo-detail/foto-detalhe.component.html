@@ -9,22 +9,13 @@
 
     <div class="col-lg-4 mt-2 mt-lg-0">
       <small>
-        <p class="text-left quebra-texto">{{foto.description}}</p>
+        <p class="text-left quebra-texto">
+          {{foto.description}}
+        </p>
         <hr>
       </small>
 
-      <div class="mt-4">
-        <form>
-          <div class="input-group">
-            <textarea class="form-control quebra-texto"></textarea>
-            <div class="input-group-append">
-              <button class="btn btn-primary">
-                Publicar
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
+      <ap-foto-comentario [fotoId]="foto.id"></ap-foto-comentario>
 
     </div>
 

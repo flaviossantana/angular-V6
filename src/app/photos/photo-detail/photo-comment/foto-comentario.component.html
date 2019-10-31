@@ -1,0 +1,28 @@
+<div *ngIf="comentarios">
+  <ul class="list-unstyled">
+    <li *ngFor="let comentario of comentarios">
+      <a class="text-danger font-weight-bold mr-1"
+         [routerLink]="['/user', comentario.userName]" >
+        {{comentario.userName}}</a>:
+      <em>
+        {{comentario.date | date:'dd-mm-yyyy HH:mm'}}
+      </em>
+      <p class="quebra-texto">
+        {{comentario.text}}
+      </p>
+    </li>
+  </ul>
+</div>
+
+<div class="mt-4">
+  <form>
+    <div class="input-group">
+      <textarea class="form-control quebra-texto"></textarea>
+      <div class="input-group-append">
+        <button class="btn btn-primary">
+          Publicar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
