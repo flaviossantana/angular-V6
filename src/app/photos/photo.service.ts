@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Photo} from './photo';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {Comentario} from "./Comentario";
 
 const API = environment.API;
 
@@ -35,8 +36,12 @@ export class PhotoService {
     return allowComments ? 'true' : 'false';
   }
 
-  buscarPorId(id: string){
-    return this.http.get<Photo>(API + '/photos/' + id);
+  buscarPorId(fotoId: number){
+    return this.http.get<Photo>(API + '/photos/' + fotoId);
+  }
+
+  buscarComentarios(fotoId: number){
+    return this.http.get<Comentario[]>(API + '/photos/' + fotoId + '/comments');
   }
 
 }
