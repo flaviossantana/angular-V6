@@ -42,4 +42,13 @@ export class FotoComentarioComponent implements OnInit {
         }
       );
   }
+
+  adicionarComentario(){
+    const comentario = this.comentarioForm.get('comment').value as string;
+    this.fotoService.adicionarComentario(this.fotoId, comentario).subscribe((value => {
+      this.comentarioForm.reset();
+      this.buscarComentarios();
+    }));
+  }
+
 }

@@ -36,12 +36,16 @@ export class PhotoService {
     return allowComments ? 'true' : 'false';
   }
 
-  buscarPorId(fotoId: number){
+  buscarPorId(fotoId: number) {
     return this.http.get<Photo>(API + '/photos/' + fotoId);
   }
 
-  buscarComentarios(fotoId: number){
+  buscarComentarios(fotoId: number) {
     return this.http.get<Comentario[]>(API + '/photos/' + fotoId + '/comments');
+  }
+
+  adicionarComentario(fotoId: number, comentario: string) {
+    return this.http.post(API + '/photos/' + fotoId + '/comments', {commentText : comentario});
   }
 
 }

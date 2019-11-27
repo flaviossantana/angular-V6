@@ -19,7 +19,10 @@
     <div class="input-group">
       <textarea formControlName="comment" class="form-control quebra-texto"></textarea>
       <div class="input-group-append">
-        <button [disabled]="!comentarioForm.valid"  class="btn btn-primary">
+        <button
+          (click)="adicionarComentario()"
+          [disabled]="!comentarioForm.valid"
+          class="btn btn-primary">
           Publicar
         </button>
       </div>
