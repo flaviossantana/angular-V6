@@ -4,6 +4,8 @@ import {CommonModule} from "@angular/common";
 import {PhotoModule} from "../photo/photo.module";
 import {FotoComentarioComponent} from "./photo-comment/foto-comentario.component";
 import {RouterModule} from "@angular/router";
+import {ReactiveFormsModule} from "@angular/forms";
+import {VmensagemModule} from "../../shared/components/vmensagem/vmensagem.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {RouterModule} from "@angular/router";
   imports: [
     RouterModule,
     CommonModule,
-    PhotoModule
+    PhotoModule,
+    ReactiveFormsModule,
+    VmensagemModule
   ]
 })
 export class FotoDetalheModule {

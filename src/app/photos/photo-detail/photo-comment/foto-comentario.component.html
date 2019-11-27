@@ -15,14 +15,23 @@
 </div>
 
 <div class="mt-4">
-  <form>
+  <form [formGroup]="comentarioForm" >
     <div class="input-group">
-      <textarea class="form-control quebra-texto"></textarea>
+      <textarea formControlName="comment" class="form-control quebra-texto"></textarea>
       <div class="input-group-append">
-        <button class="btn btn-primary">
+        <button [disabled]="!comentarioForm.valid"  class="btn btn-primary">
           Publicar
         </button>
       </div>
     </div>
+
+    <ap-mensagem
+      [isErro]="comentarioForm.get('comment').errors?.maxlength"
+      mensagem="Tamanho máximo de 3000 caracteres.">
+    </ap-mensagem>
+
   </form>
+
+
+
 </div>

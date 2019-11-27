@@ -12,3 +12,6 @@
   border-left: 5px solid #fffa31;
 }
 
+.quebra-texto {
+  word-break: break-all;
+}
