@@ -15,7 +15,14 @@
         <hr>
       </small>
 
-      <ap-foto-comentario [fotoId]="foto.id"></ap-foto-comentario>
+      <ap-foto-comentario
+        *ngIf="foto.allowComments;else comentarioBloqueado"
+        [fotoId]="foto.id">
+      </ap-foto-comentario>
+
+      <ng-template #comentarioBloqueado>
+        <p>Usuário desabilitou o comentário para está foto.</p>
+      </ng-template>
 
     </div>
 
