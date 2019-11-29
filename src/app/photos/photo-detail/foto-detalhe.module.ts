@@ -6,6 +6,7 @@ import {FotoComentarioComponent} from "./photo-comment/foto-comentario.component
 import {RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
 import {VmensagemModule} from "../../shared/components/vmensagem/vmensagem.module";
+import {MostraSomenteProprietarioModule} from "../../shared/directive/mostra-somente-proprietario/mostra-somente-proprietario.module";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {VmensagemModule} from "../../shared/components/vmensagem/vmensagem.modul
     CommonModule,
     PhotoModule,
     ReactiveFormsModule,
-    VmensagemModule
+    VmensagemModule,
+    MostraSomenteProprietarioModule
   ]
 })
 export class FotoDetalheModule {
