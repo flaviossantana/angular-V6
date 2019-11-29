@@ -5,7 +5,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'ap-foto-comentario',
-  templateUrl: 'foto-comentario.component.html'
+  templateUrl: 'foto-comentario.component.html',
+  styleUrls : ['foto-comentario.component.scss']
 })
 export class FotoComentarioComponent implements OnInit {
 
