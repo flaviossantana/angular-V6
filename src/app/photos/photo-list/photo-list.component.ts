@@ -30,11 +30,13 @@ export class PhotoListComponent implements OnInit {
   }
 
   carregarMais() {
-    this.fotoService.listaPorUsuarioPaginado(this.usuario, ++this.paginaCorrente).subscribe(fotos => {
-      this.fotos = this.fotos.concat(fotos);
-      this.temMais = fotos.length > 0;
-      this.filtro = '';
-    });
+    this.fotoService
+      .listaPorUsuarioPaginado(this.usuario, ++this.paginaCorrente)
+      .subscribe(fotos => {
+        this.fotos = this.fotos.concat(fotos);
+        this.temMais = fotos.length > 0;
+        this.filtro = '';
+      });
   }
 
   recebeFiltro(filtro: string) {
