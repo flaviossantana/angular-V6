@@ -14,7 +14,9 @@
         </p>
 
         <div class="text-left mb-4">
-          <i class="fa fa-comment-o fa-2x mr-2 ml-2"></i>{{foto.comments}}
+          <i class="fa fa-comment-o fa-2x mr-2 ml-2">
+            {{foto.comments}}
+          </i>
           <i (click)="excluir(foto.id)"
              mostarQuandoProprietario
              [foto]="foto"
