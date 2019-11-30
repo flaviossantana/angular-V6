@@ -48,4 +48,8 @@ export class PhotoService {
     return this.http.post(API + '/photos/' + fotoId + '/comments', {commentText : comentario});
   }
 
+  remover(fotoId: number){
+    return this.http.delete(API + '/photos/' + fotoId);
+  }
+
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PhotoService} from "../photo.service";
 import {Photo} from "../photo";
 import {Comentario} from "../Comentario";
@@ -13,7 +13,8 @@ export class FotoDetalheComponent implements OnInit {
 
   constructor(
     private fotoService: PhotoService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private router: Router) {
   }
 
   foto: Photo;
@@ -46,8 +47,12 @@ export class FotoDetalheComponent implements OnInit {
       });
   }
 
-  isUsuarioLogado(){
-
+  excluir(fotoId: number){
+    this.fotoService
+      .remover(fotoId)
+      .subscribe(
+        () => this.router.navigate([''])
+      );
   }
 
 }

@@ -15,7 +15,11 @@
 
         <div class="text-left mb-4">
           <i class="fa fa-comment-o fa-2x mr-2 ml-2"></i>{{foto.comments}}
-          <i mostarQuandoProprietario [foto]="foto"  class="fa fa-trash-o fa-2x pull-right"></i>
+          <i (click)="excluir(foto.id)"
+             mostarQuandoProprietario
+             [foto]="foto"
+             class="fa fa-trash-o fa-2x pull-right">
+          </i>
         </div>
 
         <hr>
